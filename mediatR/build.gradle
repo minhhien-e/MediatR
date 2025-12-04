@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'io.github.minhhien-e'
+group = 'com.github.minhhien-e'
 version = '1.0.0'
 
 repositories {
@@ -12,18 +12,8 @@ repositories {
 
 publishing {
     publications {
-        gpr(MavenPublication) {
+        mavenJava(MavenPublication) {
             from components.java
-        }
-    }
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/minhhien-e/MediatR")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
         }
     }
 }
